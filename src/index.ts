@@ -4,6 +4,7 @@ import swagger from "fastify-swagger";
 import { employees_gender, employees, PrismaClient } from "@prisma/client";
 import { SocketAddress } from "net";
 import { Request } from ".pnpm/light-my-request@4.9.0/node_modules/light-my-request";
+import fastifyCors from "fastify-cors";
 
 const prisma = new PrismaClient();
 
@@ -27,7 +28,11 @@ type SelectType = Static<typeof select>;
 type RequestType = Static<typeof request>;
 
 const server = fastify();
-server.register(swagger, {
+
+//caso queira a documentacao do swagger obs: ela fica no :8080/docs
+//a linha de baixo ficaria server.register(swagger,{.....})
+//tive que fazer isso para evitar que o cors me barrasse na hora de testar a api
+server.register(require("fastify-cors"), {
   swagger: {
     info: {
       title: "BdProject",
