@@ -32,7 +32,7 @@ const server = fastify();
 //caso queira a documentacao do swagger obs: ela fica no :8080/docs
 //a linha de baixo ficaria server.register(swagger,{.....})
 //tive que fazer isso para evitar que o cors me barrasse na hora de testar a api
-server.register(require("fastify-cors"), {
+server.register(swagger, {
   swagger: {
     info: {
       title: "BdProject",
@@ -102,7 +102,7 @@ server.post<{ Body: EmployeeType; Reply: EmployeeType }>(
   }
 );*/
 
-server.listen(8080, (err, address) => {
+server.listen(8080, "0.0.0.0", (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
