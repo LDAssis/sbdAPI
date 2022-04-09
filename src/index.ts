@@ -20,7 +20,7 @@ const select = Type.Object({
   temp_process: Type.Number(),
   resultados_qtd: Type.Number(),
   query: Type.String(),
-  resultados: Type.Any(),
+  resultados: Type.Array(Type.Any()),
 });
 
 type SelectType = Static<typeof select>;
@@ -61,10 +61,12 @@ server.post<{ Reply: SelectType; Request: RequestType }>(
 
     const teste: SelectType = {
       temp_process: dbTime_process,
-      resultados_qtd: 10,
+      resultados_qtd: 0,
       query: queryString,
-      resultados: result,
+      resultados: result as any[],
     };
+
+    teste.resultados_qtd = teste.resultados.length;
 
     return reply.status(200).send(teste);
   }
