@@ -45,6 +45,8 @@ server.register(swagger, {
 });
 
 server.register(require("fastify-cors"), {
+  origin: "*",
+  methods: ["POST"],
   swagger: {
     info: {
       title: "BdProject",
