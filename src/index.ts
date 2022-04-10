@@ -44,6 +44,18 @@ server.register(swagger, {
   exposeRoute: true,
 });
 
+server.register(require("fastify-cors"), {
+  swagger: {
+    info: {
+      title: "BdProject",
+      version: "0.0.1",
+    },
+    tags: [{ name: "Selects", description: "..." }],
+  },
+  routePrefix: "/docs",
+  exposeRoute: true,
+});
+
 server.post<{ Reply: SelectType; Request: RequestType }>(
   "/Selects",
   {
