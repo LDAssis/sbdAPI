@@ -3,7 +3,7 @@
 ## Requisitos:
 
 - Node
-- Pnpm (sim, eu usei um gerenciador de pacote diferente para cada parte kkkkkk)
+- Pnpm 
 
 ## Clona o repositorio
 
@@ -12,4 +12,4 @@ Depois roda um `pnpm run dev`
 
 ## Obs
 
-existe um arquivo .env tem a url de apontamento para o banco, caso o banco que esteja usando nao seja local e so modificar a url de apontamento :)
+existe um arquivo .env tem a url de apontamento para o banco, caso o banco que esteja usando nao seja local é so modificar a url de apontamento :)
